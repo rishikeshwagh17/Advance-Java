@@ -1,0 +1,18 @@
+package tester;
+
+import java.util.Scanner;
+
+public class TestStoredProc {
+
+	public static void main(String[] args) {
+		//testing stored procedure
+		
+		try(Scanner sc = new Scanner(System.in)){
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package pojos;
+
+public class Account {
+	//Account POJO  - id | name | type | bal
+}

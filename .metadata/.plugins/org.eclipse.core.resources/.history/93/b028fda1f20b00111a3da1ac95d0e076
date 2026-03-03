@@ -1,0 +1,11 @@
+package utils;
+
+import java.sql.Connection;
+
+public class DBUtils {
+	//add a static method to return a DB connection instance
+	
+	public static Connection getDBConnection() {
+		
+	}
+}

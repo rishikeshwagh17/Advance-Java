@@ -1,0 +1,8 @@
+package pojos;
+
+//empid | name    | addr    | salary | deptid | join_date
+public class Employee {
+	
+	private int empId;
+	private String name,address;
+}

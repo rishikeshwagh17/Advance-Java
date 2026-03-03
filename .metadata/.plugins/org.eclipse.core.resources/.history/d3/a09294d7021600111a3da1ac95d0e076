@@ -1,0 +1,34 @@
+package tester;
+
+import java.util.Scanner;
+
+import dao.EmployeeDaoImpl;
+
+public class TestEmpCRUD {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)){
+			//create emp dao instance: init phase of hte application
+			EmployeeDaoImpl dao = new EmployeeDaoImpl();
+			boolean exit = false;
+			while(!exit) {
+				System.out.println("1.Get Emp Details 10.Exit");
+				try {
+					switch (sc.nextInt()) {
+					case value:
+						
+						break;
+
+					default:
+						break;
+					}
+				}
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

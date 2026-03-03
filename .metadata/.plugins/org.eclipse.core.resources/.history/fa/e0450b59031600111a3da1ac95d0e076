@@ -1,0 +1,39 @@
+package tester;
+
+import java.util.Scanner;
+
+import dao.EmployeeDaoImpl;
+
+public class TestEmpCRUD {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)){
+			//create emp dao instance: init phase of hte application
+			EmployeeDaoImpl dao = new EmployeeDaoImpl();
+			boolean exit = false;
+			while(!exit) {
+				System.out.println("1.Get Emp Details 10.Exit");
+				try {
+					switch (sc.nextInt()) {
+					case 1:
+						System.out.println("Enter dept beginDate & endDate(yr-mon-day)");
+						break;
+
+					case 10:
+						exit = true;
+						//destroy phase of app
+						dao.cleanUp();
+						break;
+					}
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

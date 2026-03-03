@@ -1,0 +1,29 @@
+package tester;
+
+import java.sql.*;
+import static utils.DBConnectionUtil.getDBConnection;
+
+public class TestAllTopics {
+
+	public static void main(String[] args) {
+		// make sure we are testing the details for all the avaliable topics
+		// it is a DQL statement simple one so no nned of input just use
+		/*
+		 * create a simple connection using Driver connection then use that connection
+		 * to generate statement
+		 */
+		try (Connection cn = getDBConnection();
+				Statement st = cn.createStatement();
+				ResultSet rst = st.executeQuery("select * from topics");) {
+			while(rst.next()) {
+				System.out.printf("Topics Details id %d name %s",rst.getInt(1),rst.getString(2));
+				System.out.println();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

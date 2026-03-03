@@ -1,0 +1,13 @@
+package utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBUtils {
+	// add a static method to return a DB connection instance
+
+	public static Connection getDBConnection() {
+		String url = "jdbc:mysql://localhost:3306/dac22?useSSL=false&allowPublicKeyRetrieval=true";
+		return DriverManager.getConnection(url, "root", "root123");
+	}
+}

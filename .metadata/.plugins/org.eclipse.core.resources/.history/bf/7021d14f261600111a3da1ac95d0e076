@@ -1,0 +1,7 @@
+package dao;
+
+public interface IAccountDao {
+	
+	//add a method to transfer funds from source to dest account
+	
+}

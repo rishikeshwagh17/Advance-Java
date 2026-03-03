@@ -1,0 +1,29 @@
+package tester;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+import static utils.DBUtils.getDBConnection;
+
+//2. need for preparedStatement, usecase - display emp details from a specific
+		// department,joined after specific date, sorted as per salary
+
+public class TestPreparedStatement {
+
+	public static void main(String[] args) {
+		String sql = "select * from my_emp where deptid=? and join_date > ? order by salary";
+		try(Scanner sc = new Scanner(System.in);
+			Connection cn = 	getDBConnection();
+			PreparedStatement pst = cn.prepareStatement(sql);
+				){
+			System.out.println("Enter the deptid and date");
+			String deptID = sc.next();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

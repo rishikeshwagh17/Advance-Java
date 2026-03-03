@@ -1,0 +1,15 @@
+package tester;
+
+public class TestTopicTutorial {
+
+	public static void main(String[] args) {
+		
+		try(){
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

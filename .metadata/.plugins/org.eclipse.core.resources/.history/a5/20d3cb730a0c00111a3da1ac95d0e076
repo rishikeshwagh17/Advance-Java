@@ -1,0 +1,43 @@
+package tester;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+import static utils.DBUtils.getDBConnection;
+
+//2. need for preparedStatement, usecase - display emp details from a specific
+		// department,joined after specific date, sorted as per salary
+
+public class TestPreparedStatement {
+
+	public static void main(String[] args) {
+		String sql = "select * from my_emp where deptid=? and join_date > ? order by salary";
+		try(Scanner sc = new Scanner(System.in);
+			Connection cn = 	getDBConnection();
+			PreparedStatement pst = cn.prepareStatement(sql);
+				){
+			System.out.println("Enter the deptid and date(yr-mon-day)");
+			String deptID = sc.next();
+			Date joinedDate = Date.valueOf(sc.next());
+			
+			//set IN parameters
+			pst.setString(1, deptID);
+			pst.setDate(2, joinedDate);
+			
+			//once params are IN then use execute query
+			try(ResultSet rst = pst.executeQuery()){
+				while(rst.next()) {
+					System.out.printf("EMP Id %d Name %s Address %s Salary %.1f DeptId %s join date %s %n", rst.getInt(1),
+							rst.getString(2), rst.getString(3), rst.getDouble(4), rst.getString(5), rst.getDate(6));
+				}
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

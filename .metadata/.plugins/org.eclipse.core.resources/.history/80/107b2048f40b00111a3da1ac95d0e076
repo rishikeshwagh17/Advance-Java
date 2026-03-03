@@ -1,0 +1,20 @@
+package tester;
+
+import java.sql.Connection;
+
+import static utils.DBUtils.getDBConnection;
+
+public class TestStatement {
+
+	public static void main(String[] args) {
+		// display all the details using emp
+		
+		try {
+			Connection dbConnection = DBUtils.getDBConnection();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

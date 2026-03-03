@@ -1,0 +1,33 @@
+package tester;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import static utils.DBUtils.getDBConnection;
+
+public class TestStatement {
+
+	public static void main(String[] args) {
+		// display all the details using emp
+		// create a empty statement object to hold query in try with resource along with
+		// connection
+		try (Connection conn = getDBConnection();
+				Statement st = conn.createStatement();
+				// also i can use select query : public ResultSet executeQuery(String sql)
+				// throws SQLExc
+				ResultSet res = st.executeQuery("select * from my_emp");) {
+			while (res.next()) {
+				System.out.printf("EMP Id %d Name %s Address %s Salary %.1f DeptId %s join date %s %n", res.getInt(1),
+						res.getString(2), res.getString(3), res.getDouble(4), res.getString(5), res.getDate(6));
+
+			}
+
+		} //res.close, st.close, cn.close
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

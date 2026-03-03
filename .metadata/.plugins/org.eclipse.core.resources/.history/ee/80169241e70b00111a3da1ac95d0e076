@@ -1,0 +1,13 @@
+package tester;
+
+public class TestDBConnection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//load mySql connector i.e JDBC driver class in the method area: Optional
+		Class.forName("com.mysql.cj.jdbc.Driver")
+		
+	}
+
+}

@@ -1,0 +1,22 @@
+package tester;
+
+import java.sql.Connection;
+import java.sql.Statement;
+
+import static utils.DBUtils.getDBConnection;
+
+public class TestStatement {
+
+	public static void main(String[] args) {
+		// display all the details using emp
+		//create a empty statement object to hold query in try with resource along with connection
+		try(Connection conn = getDBConnection();
+				Statement st = conn.createStatement()) {
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

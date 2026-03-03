@@ -1,0 +1,31 @@
+package tester;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+import static utils.DBConnectionUtil.getDBConnection;
+
+public class TestTopicTutorial {
+
+	public static void main(String[] args) {
+		
+		String sql = "select * from users where email=? and password=?";
+		
+		//make a scanner and then create a connection
+		try(Scanner sc = new Scanner(System.in);
+				Connection cn = getDBConnection();
+					PreparedStatement pst = 	cn.prepareStatement(url)){
+			System.out.println("Please enter the email and password");
+			String email = sc.next();
+			String password = sc.next();
+			
+			//now use this values as a input to the query execution
+			pst.execute
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

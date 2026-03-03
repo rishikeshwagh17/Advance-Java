@@ -1,0 +1,21 @@
+package tester;
+
+import java.util.Scanner;
+
+import dao.AccountDaoImpl;
+
+public class TestStoredProc {
+
+	public static void main(String[] args) {
+		//testing stored procedure
+		AccountDaoImpl dao = new AccountDaoImpl();
+		
+		try(Scanner sc = new Scanner(System.in)){
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

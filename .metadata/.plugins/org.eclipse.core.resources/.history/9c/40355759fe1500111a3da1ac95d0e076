@@ -1,0 +1,50 @@
+package dao;
+
+import java.sql.*;
+import java.util.List;
+
+import pojos.Employee;
+import static utils.DBUtils.openConnection;
+
+public class EmployeeDaoImpl implements IEmployeeDao {
+
+	private Connection cn;
+	private PreparedStatement pst1;
+	
+	
+	//constr -- init time jobs (cn,pst,csts)
+	//clean-up - close PST/STs/CSTs/cn
+	
+	public EmployeeDaoImpl() throws SQLException {
+		// get fix DB connection from DBUtils
+		cn = openConnection();
+		pst1 = cn.prepareStatement("select empid,name,salary,join_date from my_emp where deptid=? and join_date between ? and ?");
+		System.out.println("Employee Dao created...");
+	}
+	
+	
+	@Override
+	public List<Employee> getSelectedEmpDetails(String deptId, Date strDate, Date endDate) throws SQLException {
+		// how can we access details
+		//Set IN parameters
+		pst1.setString(1, deptId);
+		pst1.setDate(2, strDate);
+		pst1.setDate(3, endDate);
+		try(ResultSet rst = pst1.executeQuery()){
+			while(rst.next())
+		}
+		return null;
+	}
+	
+	//add a method to cleanUp database resources
+	public void cleanUp() throws SQLException {
+		if(pst1 != null) {
+			pst1.close();
+		}
+		if(cn != null) {
+			cn.close();
+		}
+		System.out.println("Employee Dao cleanup");
+	}
+
+}

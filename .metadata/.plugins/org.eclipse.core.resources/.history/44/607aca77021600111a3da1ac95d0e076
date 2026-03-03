@@ -1,0 +1,16 @@
+package tester;
+
+import java.util.Scanner;
+
+import dao.EmployeeDaoImpl;
+
+public class TestEmpCRUD {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)){
+			EmployeeDaoImpl dao = new EmployeeDaoImpl()
+		}
+
+	}
+
+}

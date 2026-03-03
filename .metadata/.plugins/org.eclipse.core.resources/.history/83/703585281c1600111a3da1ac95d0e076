@@ -1,0 +1,30 @@
+package dao;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import pojos.Employee;
+
+public interface IEmployeeDao {
+
+	/*
+	 * add a method declaration for getting selected emps
+	 * getSelectedEmpDetails(....) throws SQLException
+	 */
+
+	List<Employee> getSelectedEmpDetails(String deptId, Date strDate, Date endDate) throws SQLException;
+	
+	//add a method to insert new emp details
+	String insertEmpDetails(Employee employee) throws SQLException;
+	
+	//add a method to update emp's dept and salary
+	String updateEmpDetails(int empId, double salInc, String newDept) throws SQLException;
+
+	//add a method to delete the employee
+	String deleteEmployee(int empId) throws SQLException;
+	
+	//add a method to get avg salary group by deptId
+	Map<String, Double> getAvgSalByDepartment(String deptId) throws SQLException;
+}

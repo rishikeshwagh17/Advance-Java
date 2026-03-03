@@ -1,0 +1,26 @@
+package dao;
+
+import java.sql.*;
+import java.sql.SQLException;
+
+import utils.DBUtils;
+
+public class AccountDaoImpl implements IAccountDao {
+
+	private Connection cn;
+	private CallableStatement cst1;
+	
+	public AccountDaoImpl() throws SQLException {
+		cn = DBUtils.openConnection();
+		//cst: to represent invocation of a store procedure
+		cst1 = cn.prepareCall("{call transfer_funds(?,?,?,?,?)}");
+		System.out.println("Account Dao created...");
+	}
+	
+	@Override
+	public String transferFunds(int srcAcctNo, int destAcctNo, double amount) throws SQLException {
+		
+		return null;
+	}
+
+}

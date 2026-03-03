@@ -1,0 +1,18 @@
+package tester;
+
+import utils.DBUtils;
+
+public class TestStatement {
+
+	public static void main(String[] args) {
+		// display all the details using emp
+		
+		try {
+			DBUtils.getDBConnection()
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

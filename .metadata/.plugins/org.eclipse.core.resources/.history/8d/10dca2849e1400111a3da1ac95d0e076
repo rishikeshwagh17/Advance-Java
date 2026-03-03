@@ -1,0 +1,17 @@
+package utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBUtils {
+
+	private static Connection cn;
+
+	public static Connection openConnection() {
+		if (cn == null) {
+			String url = "jdbc:mysql://localhost:3306/dac22?useSSL=false&allowPublicKeyRetrieval=true";
+			cn = DriverManager.getConnection(url, "root", "root123");
+		}
+	}
+
+}

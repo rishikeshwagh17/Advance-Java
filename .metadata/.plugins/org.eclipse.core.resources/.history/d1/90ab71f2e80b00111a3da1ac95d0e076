@@ -1,0 +1,29 @@
+package tester;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class TestDBConnection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//load mySql connector i.e JDBC driver class in the method area: Optional
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/dac22?useSSL=false&allowPublicKeyRetrieval=true";
+			
+			//API of java.sql.DriverManager class
+			//public static Connection getConnection(String url,String userName, String password) throws SQLException
+			
+			try(Connection cn = DriverManager.getConnection(url, "root", "root123")){
+				System.out.println("database connection successful");
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

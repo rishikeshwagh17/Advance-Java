@@ -1,0 +1,24 @@
+package tester;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.Scanner;
+import static utils.DBUtils.getDBConnection;
+
+
+public class TestPreparedStatement {
+
+	public static void main(String[] args) {
+		
+		try(Scanner sc = new Scanner(System.in);
+			Connection cn = 	getDBConnection();
+				cn.createStatement()
+				){
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
