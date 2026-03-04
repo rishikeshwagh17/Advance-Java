@@ -18,8 +18,8 @@ public class AccountDaoImpl implements IAccountDao {
 		// register OUT params for procedure
 		// API - public void registerOutParamter(int paramPos, int jdbcType) throws
 		// SQLExcpetion
-//		cst1.registerOutParameter(4, Types.DOUBLE); // for double amount sbal
-//		cst1.registerOutParameter(5, Types.DOUBLE); // for dbal
+		cst1.registerOutParameter(4, Types.DOUBLE); // for double amount sbal
+		cst1.registerOutParameter(5, Types.DOUBLE); // for dbal
 		System.out.println("Account Dao created...");
 	}
 
